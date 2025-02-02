@@ -1,0 +1,68 @@
+﻿<Window x:Class="CINEMA_ORM.Registrar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CINEMA_ORM"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Registro Emplead@s" Height="700" MinHeight="700" MaxHeight="2700" Width="900" MinWidth="900" MaxWidth="2900" WindowStartupLocation="CenterScreen"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="18"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        ShowInTaskbar="False" Icon="/LogoAstrocines3.PNG">
+    <Grid x:Name="GD_CONTENIDO" Background="WhiteSmoke" IsEnabled="True" Visibility="Visible">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="GB_CUERPO" Grid.Row="0" Header="Datos de empleadx" Style="{DynamicResource MaterialDesignGroupBox}" Margin="16" FontSize="18">
+            <Grid x:Name="GD_CONTENEDOR">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="137*"/>
+                    <RowDefinition Height="137*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="TB_EMAIL" Grid.Column="0" Grid.Row="0" materialDesign:HintAssist.Hint="Correo electrónico"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center" Margin="10,0" FontSize="18"
+                         Text="{Binding Path=Correo, Mode=TwoWay,
+                          UpdateSourceTrigger=PropertyChanged
+                          , NotifyOnValidationError=True,
+                            ValidatesOnDataErrors=True}"/>
+                <PasswordBox x:Name="PB_PASS" Grid.Row="0" Grid.Column="1" 
+                             materialDesign:HintAssist.Hint="Contraseña"
+                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                             VerticalAlignment="Center" Margin="10,0" FontSize="18" />
+                <PasswordBox x:Name="PB_PASS_REP" Grid.Row="1" Grid.Column="1"
+                             materialDesign:HintAssist.Hint="Repite la contraseña"
+                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                             VerticalAlignment="Center" Margin="10,0" FontSize="18"/>
+                <ComboBox x:Name="CB_CINE_ID" Grid.Column="0" Grid.Row="1" 
+                          SelectedValue="{Binding Path=Cine_CineId, Mode=TwoWay,
+                          UpdateSourceTrigger=PropertyChanged
+                          , NotifyOnValidationError=True,
+                          ValidatesOnDataErrors=True}" 
+                          materialDesign:HintAssist.Hint="Cine" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                          VerticalAlignment="Center" Margin="10,0" FontSize="18"
+                          SelectionChanged="CB_CINE_SelectionChanged"/>
+            </Grid>
+        </GroupBox>
+        <WrapPanel x:Name="WP_BOTONES_DER" Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right">
+            <Button x:Name="BT_LIMPIAR" Style="{DynamicResource MaterialDesignRaisedButton}" Content="{materialDesign:PackIcon Kind=RubbishBin}" Margin="5" FontSize="16" Click="BT_LIMPIAR_Click" ToolTip="Limpiar formulario" Cursor="Hand" />
+            <Button x:Name="BT_GUARDAR" Style="{DynamicResource MaterialDesignRaisedButton}" Content="{materialDesign:PackIcon Kind=ContentSave}" Margin="5" FontSize="16" Click="BT_GUARDAR_Click" ToolTip="Registramos los datos de emplead@" Cursor="Pen" />
+        </WrapPanel>
+        <WrapPanel x:Name="WP_BOTONES_IZQ" Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left">
+            <Button x:Name="BT_VOLVER" Style="{DynamicResource MaterialDesignRaisedButton}" Content="{materialDesign:PackIcon Kind=ArrowBack}" Margin="5" FontSize="16" Click="BT_VOLVER_Click" ToolTip="Volver a la ventana Login" Cursor="Arrow"/>
+            <Button x:Name="BT_SALIR" Style="{DynamicResource MaterialDesignRaisedButton}" Content="{materialDesign:PackIcon Kind=CloseBox}" Margin="5" Click="BT_SALIR_Click" FontSize="16" ToolTip="Salir de la aplicación" Cursor="Cross"></Button>
+        </WrapPanel>
+    </Grid>
+</Window>

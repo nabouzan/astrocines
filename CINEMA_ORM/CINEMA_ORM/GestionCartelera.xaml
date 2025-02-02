@@ -1,0 +1,55 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CINEMA_ORM" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:UserControls="clr-namespace:CINEMA_ORM.UserControls" x:Class="CINEMA_ORM.GestionCartelera"
+      mc:Ignorable="d"
+      d:DesignHeight="500" d:DesignWidth="800"
+      MinHeight="500" MaxHeight="2700" MinWidth="800" MaxWidth="2900"
+      Title="GestionCartelera"   TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="18"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+
+
+    <Grid x:Name="GD_CONTENIDO" Background="WhiteSmoke" IsEnabled="True" Visibility="Visible">
+        <Grid x:Name="GD_CONTENIDO_CA" Background="WhiteSmoke"  IsEnabled="True" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <DataGrid x:Name="DG_PELICULAS" IsReadOnly="true" SelectionMode="Single" AutoGenerateColumns="False"  Grid.Row="0" Margin="0,10,0,10" SelectionChanged="DgPeliculas_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Path=PeliculaId}"/>
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding Path=Nombre}"/>
+                    <DataGridTemplateColumn Width="70" Header="Cartel">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Path=Imagen}"></Image>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Recomendación" Binding="{Binding Path=Recomendacion}"/>
+                    <DataGridTextColumn Header="Lanzamiento" Binding="{Binding Path=Lanzamiento}"/>
+                    <DataGridTextColumn Header="Género" Binding="{Binding Path=Genero}"/>
+                    <DataGridTextColumn Header="Reparto" Binding="{Binding Path=Reparto}"/>
+                    <DataGridTextColumn Header="Director" Binding="{Binding Path=Director}"/>
+                    <DataGridTextColumn Header="Nacionalidad" Binding="{Binding Path=Nacionalidad}"/>
+                    <DataGridTextColumn Header="Distribuidora" Binding="{Binding Path=Distribuidora}"/>
+                    <DataGridTextColumn Header="Sinopsis" Binding="{Binding Path=Sinopsis}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <WrapPanel x:Name="WP_BOTONES" Orientation="Horizontal" Grid.Row="1"  HorizontalAlignment="Center">
+                <Button x:Name="BT_REGISTRAR" Content="Añadir" ToolTip="Añadir nueva película" Style="{DynamicResource MaterialDesignRaisedButton}" Click="BT_REGISTRAR_Click" FontSize="16" Margin="20,10,20,10"/>
+                <Button x:Name="BT_ELIMINAR" ToolTip="Eliminar película seleccionada" Style="{DynamicResource MaterialDesignRaisedButton}" Content="Eliminar" Margin="20,10,20,10" FontSize="16" Click="BT_ELIMINAR_Click"  />
+                <!--<Button x:Name="BT_CANCELAR" Content="Cancelar" ToolTip="Cancelar" Style="{DynamicResource MaterialDesignRaisedButton}" Click="BT_CANCELAR_Click" FontSize="16" Margin="20,10,20,10"/>-->
+            </WrapPanel>
+        </Grid>
+    </Grid>
+</Page>

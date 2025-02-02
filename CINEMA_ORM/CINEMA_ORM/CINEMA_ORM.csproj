@@ -1,0 +1,116 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Documentos\ManualUsuaria.pdf" />
+    <None Remove="Imagenes\como-dios-manda-64770967102e3.jpg" />
+    <None Remove="Imagenes\eye.png" />
+    <None Remove="Imagenes\fast-furious-x-64479774b96df.jpg" />
+    <None Remove="Imagenes\flash-6489865cbf78d.jpg" />
+    <None Remove="Imagenes\guardianes-de-la-galaxia-volumen-3-643d243c846f8.jpg" />
+    <None Remove="Imagenes\indiana-jones-y-el-dial-del-destino-648989f862964.jpg" />
+    <None Remove="Imagenes\jovenes-y-brujas-5fa3c137ea3cf.jpg" />
+    <None Remove="Imagenes\JPG000gu.jpg" />
+    <None Remove="Imagenes\JPG000l8.jpg" />
+    <None Remove="Imagenes\la-sirenita-646c8243e8436.jpg" />
+    <None Remove="Imagenes\LogoAstrocines.PNG" />
+    <None Remove="Imagenes\LogoAstrocines3.ico" />
+    <None Remove="Imagenes\LogoAstrocines3.PNG" />
+    <None Remove="Imagenes\pdf.png" />
+    <None Remove="Imagenes\spider-man-cruzando-el-multiverso-647708a8e5f5a.jpg" />
+    <None Remove="Imagenes\the-boogeyman-647708301c7df.jpg" />
+    <None Remove="Imagenes\todo-sobre-mi-padre-64818f094e860.jpg" />
+    <None Remove="Imagenes\transformers-el-despertar-de-las-bestias-648189a61942c.jpg" />
+    <None Remove="Imagenes\vaya-vacaciones-646f209f95195.jpg" />
+    <None Remove="LogoAstrocines3.PNG" />
+    <None Remove="pdf.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Documentos\ManualUsuaria.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\como-dios-manda-64770967102e3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\fast-furious-x-64479774b96df.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\flash-6489865cbf78d.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\guardianes-de-la-galaxia-volumen-3-643d243c846f8.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\indiana-jones-y-el-dial-del-destino-648989f862964.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\jovenes-y-brujas-5fa3c137ea3cf.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\JPG000gu.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\JPG000l8.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\la-sirenita-646c8243e8436.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\LogoAstrocines.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\LogoAstrocines3.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\LogoAstrocines3.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\pdf.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\spider-man-cruzando-el-multiverso-647708a8e5f5a.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\the-boogeyman-647708301c7df.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\todo-sobre-mi-padre-64818f094e860.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\transformers-el-despertar-de-las-bestias-648189a61942c.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Imagenes\vaya-vacaciones-646f209f95195.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Imagenes\eye.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="iTextSharp" Version="5.5.13.2" />
+    <PackageReference Include="MaterialDesignColors" Version="2.1.1" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.7.1" />
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.2.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.32">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="LogoAstrocines3.PNG" />
+    <Resource Include="pdf.png" />
+  </ItemGroup>
+
+</Project>

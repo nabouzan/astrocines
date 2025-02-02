@@ -1,0 +1,142 @@
+﻿<Page x:Class="CINEMA_ORM.GestionEmpleadas"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CINEMA_ORM"
+      mc:Ignorable="d" 
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="550" d:DesignWidth="800"
+      MinHeight="550" MaxHeight="2700" MinWidth="800" MaxWidth="2900"
+      Title="GestionEmpleadas"   TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="18"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+    <Grid Name="GD_CONTENIDO" Background="WhiteSmoke" IsEnabled="True" Visibility="Visible">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="350"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="GB_FORMULARIO" Header="Datos de emplead@" 
+                  Style="{DynamicResource MaterialDesignGroupBox}"
+                  Grid.Column="0" Grid.Row="0" Margin="10,10,10,10" FontSize="18">
+            <Grid x:Name="GD_FORMULARIO">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Name="TB_NOMBRE" TabIndex="0" Grid.Column="0" 
+                         materialDesign:HintAssist.Hint="Nombre" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center" Margin="10,0" 
+                         FontSize="18" Text="{Binding Path=Nombre, Mode=TwoWay,
+                         UpdateSourceTrigger=PropertyChanged
+                            , NotifyOnValidationError=True,
+                            ValidatesOnDataErrors=True}"/>
+                <TextBox Name="TB_APELLIDOS" TabIndex="1" Grid.Row="1" 
+                         materialDesign:HintAssist.Hint="Apellidos"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center" Margin="10,0"
+                         FontSize="18" Text="{Binding Path=Apellidos, Mode=TwoWay,
+                         UpdateSourceTrigger=PropertyChanged
+                            , NotifyOnValidationError=True,
+                         ValidatesOnDataErrors=True}"/>
+                <TextBox Name="TB_DIRECCION" TabIndex="2" Grid.Column="0" Grid.Row="2"
+                         materialDesign:HintAssist.Hint="Dirección"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Center" Margin="10,0"
+                         FontSize="18" Text="{Binding Path=Direccion, Mode=TwoWay,
+                         UpdateSourceTrigger=PropertyChanged
+                         , NotifyOnValidationError=True,
+                            ValidatesOnDataErrors=True}"/>
+                <TextBox Name="TB_DNI" TabIndex="3" Grid.Column="1" Grid.Row="0"
+                         materialDesign:HintAssist.Hint="DNI" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         VerticalAlignment="Center" Margin="10,0"
+                         FontSize="18" Text="{Binding Path=DNI, Mode=TwoWay,
+                         UpdateSourceTrigger=PropertyChanged
+                        , NotifyOnValidationError=True,
+                          ValidatesOnDataErrors=True}" MaxLength="9"/>
+                <TextBox Name="TB_EMAIL" TabIndex="4" Grid.Column="1" Grid.Row="1" 
+                         materialDesign:HintAssist.Hint="Correo electrónico"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center" Margin="10,0"
+                         FontSize="18" Text="{Binding Path=Correo, Mode=TwoWay,
+                         UpdateSourceTrigger=PropertyChanged
+                         , NotifyOnValidationError=True,
+                          ValidatesOnDataErrors=True}"/>
+                <TextBox Name="TB_TELEFONO" TabIndex="5" Grid.Column="1" Grid.Row="2"
+                         materialDesign:HintAssist.Hint="Teléfono" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         VerticalAlignment="Center" 
+                         Margin="10,0" FontSize="18" 
+                         Text="{Binding Path=Telefono, Mode=TwoWay,
+                         UpdateSourceTrigger=PropertyChanged
+                        , NotifyOnValidationError=True,
+                         ValidatesOnDataErrors=True}" MaxLength="9"/>
+
+                <ComboBox x:Name="CB_ROL_ID" TabIndex="6" Grid.Column="0" Grid.Row="3"
+                          SelectedValue="{Binding Path=Rol_RolId, Mode=TwoWay,
+                          UpdateSourceTrigger=PropertyChanged
+                          , NotifyOnValidationError=True,
+                          ValidatesOnDataErrors=True}" 
+                          materialDesign:HintAssist.Hint="Rol"  
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                          VerticalAlignment="Center" Margin="10,0" 
+                          FontSize="18" SelectionChanged="CB_ROL_SelectionChanged"/>
+
+                <ComboBox x:Name="CB_CINE_ID" TabIndex="7" Grid.Column="1" Grid.Row="3" 
+                          SelectedValue="{Binding Path=Cine_CineId, Mode=TwoWay,
+                          UpdateSourceTrigger=PropertyChanged
+                          , NotifyOnValidationError=True,
+                          ValidatesOnDataErrors=True}" 
+                          materialDesign:HintAssist.Hint="Cine" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+                          VerticalAlignment="Center" Margin="10,0" FontSize="18"
+                          SelectionChanged="CB_CINE_SelectionChanged"/>
+
+                <PasswordBox x:Name="PB_PASS" TabIndex="8" Grid.Column="0" Grid.Row="4" 
+                             materialDesign:HintAssist.Hint="Contraseña"
+                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                             VerticalAlignment="Center" Margin="10,0" FontSize="18"/>
+                <PasswordBox x:Name="PB_PASS_REP" TabIndex="9" Grid.Column="1" Grid.Row="4" 
+                             materialDesign:HintAssist.Hint="Repite la contraseña"
+                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                             VerticalAlignment="Center" Margin="10,0" FontSize="18"/>
+            </Grid>
+        </GroupBox>
+        <WrapPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Grid.Column="1">
+            <Button x:Name="BT_LIMPIAR" ToolTip="Limpiar formulario" Style="{DynamicResource MaterialDesignRaisedButton}" Content="Limpiar" Margin="5" FontSize="18" Click="BT_LIMPIAR_Click"  />
+            <Button x:Name="BT_ELIMINAR" ToolTip="Eliminar emplead@" Style="{DynamicResource MaterialDesignRaisedButton}" Content="Eliminar" Margin="5" FontSize="18" Click="BT_ELIMINAR_Click"  />
+            <Button x:Name="BT_GUARDAR" ToolTip="Guardar emplead@" Style="{DynamicResource MaterialDesignRaisedButton}" Content="Guardar" Margin="5" FontSize="18" Click="BT_GUARDAR_Click"  />
+            <Button x:Name="BT_GENERAR_INFORME" ToolTip="Generar Informe" Style="{DynamicResource MaterialDesignRaisedButton}" Content="Generar" Margin="5" FontSize="18" Click="BT_GENERAR_INFORME_Click"/>
+        </WrapPanel>
+        <DataGrid x:Name="DG_EMPLEADX" IsReadOnly="true" SelectionMode="Single" 
+                  AutoGenerateColumns="False" Grid.Column="0" Grid.Row="2" 
+                  Margin="0,10,0,10" SelectionChanged="DG_EMPLEADX_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="50" Binding="{Binding Path=EmpleadaId}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Path=Nombre}"/>
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Path=Apellidos}"/>
+                <DataGridTextColumn Header="Dirección" Binding="{Binding Path=Direccion}"/>
+                <DataGridTextColumn Header="DNI" Binding="{Binding Path=DNI}"/>
+                <DataGridTextColumn Header="Correo" Binding="{Binding Path=Correo}"/>
+                <DataGridTextColumn Header="Clave" Binding="{Binding Path=Clave}"/>
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding Path=Telefono}"/>
+                <DataGridTextColumn Header="Rol" Binding="{Binding Path=Rol_RolId}"/>
+                <DataGridTextColumn Header="Cine" Binding="{Binding Path=Cine_CineId}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

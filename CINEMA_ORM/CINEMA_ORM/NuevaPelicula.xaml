@@ -1,0 +1,142 @@
+﻿<Window xmlns:UserControls="clr-namespace:CINEMA_ORM.UserControls"  x:Class="CINEMA_ORM.NuevaPelicula"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CINEMA_ORM"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"   
+        d:DesignHeight="550" d:DesignWidth="800"
+        MinHeight="550" MaxHeight="2700" MinWidth="800" MaxWidth="2900"
+        Title="Nueva Película" TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="18"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        ShowInTaskbar="False" Icon="/LogoAstrocines3.PNG">
+
+    <Grid x:Name="GD_CONTENIDO" Background="WhiteSmoke" IsEnabled="True" Visibility="Visible">
+        <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Margin="10">
+            <StackPanel x:Name="SP_CARTELERA" HorizontalAlignment="Center" Height="334" VerticalAlignment="Center" Width="auto" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
+        </ScrollViewer>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="490"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <GroupBox x:Name="GB_FORMULARIO_NEW" Header="Nueva película" Style="{DynamicResource MaterialDesignGroupBox}" Grid.Row="0" Margin="10,10,10,10" >
+            <Grid x:Name="GD_CUERPO">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <WrapPanel x:Name="WP_IMAGE" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <Image x:Name="IM_CARTEL_NEW" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <!--<Image x:Name="IM_PELICULA" Grid.Column="0" Grid.RowSpan="7" Grid.Row="0"
+                             materialDesign:HintAssist.Hint="Imagen" Height="200"  Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" Cursor="Hand" />-->
+                </WrapPanel>
+                <Button x:Name="BT_OPENFILE" Grid.Column="0" Grid.Row="3" Click="btnOpenFile_Click" Content="Cargar Cartel" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                <TextBox Name="TB_RUTA" Grid.Column="0" Grid.Row="4"
+                                 materialDesign:HintAssist.Hint="Ruta"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center" Margin="10,0"
+                                 FontSize="18" Text="{Binding Path=Path, Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged
+                                 , NotifyOnValidationError=True,
+                                 ValidatesOnDataErrors=True}"/>
+      
+                <TextBox Name="TB_SINOPSIS" Grid.Column="0" Grid.Row="5" Grid.RowSpan="3"
+                         materialDesign:HintAssist.Hint="Sinopsis"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,0"
+                         FontSize="18" Text="{Binding Path=Sinopsis, Mode=TwoWay,
+                         UpdateSourceTrigger=PropertyChanged
+                         , NotifyOnValidationError=True,
+                         ValidatesOnDataErrors=True}"/>
+
+
+                <TextBox Name="TB_NOMBRE" Grid.Column="1" Grid.Row="0"
+                                 materialDesign:HintAssist.Hint="Nombre"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center" Margin="10,0"
+                                 FontSize="18" Text="{Binding Path=Nombre, Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged
+                                 , NotifyOnValidationError=True,
+                                 ValidatesOnDataErrors=True}"/>
+                <TextBox Name="TB_RECOMENDACION" Grid.Column="1" Grid.Row="1"
+                                 materialDesign:HintAssist.Hint="Recomendación"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center" Margin="10,0"
+                                 FontSize="18" Text="{Binding Path=Recomendacion, Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged
+                                 , NotifyOnValidationError=True,
+                                 ValidatesOnDataErrors=True}"/>
+                <TextBox Name="TB_LANZAMIENTO" Grid.Column="1" Grid.Row="2"
+                                 materialDesign:HintAssist.Hint="Lanzamiento"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center" Margin="10,0"
+                                 FontSize="18" Text="{Binding Path=Lanzamiento, Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged
+                                 , NotifyOnValidationError=True,
+                                 ValidatesOnDataErrors=True}"/>
+                <TextBox Name="TB_GENERO" Grid.Column="1" Grid.Row="3"
+                                 materialDesign:HintAssist.Hint="Género"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center" Margin="10,0"
+                                 FontSize="18" Text="{Binding Path=Genero, Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged
+                                 , NotifyOnValidationError=True,
+                                 ValidatesOnDataErrors=True}"/>
+                <TextBox Name="TB_REPARTO" Grid.Column="1" Grid.Row="4"
+                                 materialDesign:HintAssist.Hint="Reparto"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center" Margin="10,0"
+                                 FontSize="18" Text="{Binding Path=Reparto, Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged
+                                 , NotifyOnValidationError=True,
+                                 ValidatesOnDataErrors=True}"/>
+                <TextBox Name="TB_DIRECTORA" Grid.Column="1" Grid.Row="5"
+                                 materialDesign:HintAssist.Hint="Director/a"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center" Margin="10,0"
+                                 FontSize="18" Text="{Binding Path=Director, Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged
+                                 , NotifyOnValidationError=True,
+                                 ValidatesOnDataErrors=True}"/>
+                <TextBox Name="TB_NACIONALIDAD" Grid.Column="1" Grid.Row="6"
+                                 materialDesign:HintAssist.Hint="Nacionalidad"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center" Margin="10,0"
+                                 FontSize="18" Text="{Binding Path=Nacionalidad, Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged
+                                 , NotifyOnValidationError=True,
+                                 ValidatesOnDataErrors=True}"/>
+                <TextBox Name="TB_DISTRIBUIDORA" Grid.Column="1" Grid.Row="7"
+                                 materialDesign:HintAssist.Hint="Distribuidora"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center" Margin="10,0"
+                                 FontSize="18" Text="{Binding Path=Distribuidora, Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged
+                                 , NotifyOnValidationError=True,
+                                 ValidatesOnDataErrors=True}"/>
+            </Grid>
+        </GroupBox>
+        <WrapPanel x:Name="WP_BOTONES" Orientation="Horizontal" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <!--<Button x:Name="BT_ELIMINAR" ToolTip="Eliminar" Style="{DynamicResource MaterialDesignRaisedButton}" Content="Eliminar" Margin="20,10,20,10" FontSize="16" Click="BT_ELIMINAR_Click"  />-->
+            <Button x:Name="BT_REGISTRAR" Content="Guardar" ToolTip="Añadir/Modificar" Style="{DynamicResource MaterialDesignRaisedButton}" Click="BT_REGISTRAR_Click" FontSize="16" Margin="20,10,20,10"/>
+            <Button x:Name="BT_BORRAR" Content="Borrar" ToolTip="Borrar formulario" Style="{DynamicResource MaterialDesignRaisedButton}" Click="BT_BORRAR_Click" FontSize="16" Margin="20,10,20,10"/>
+        </WrapPanel>
+    </Grid>
+</Window>

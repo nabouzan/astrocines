@@ -1,0 +1,85 @@
+﻿<Window x:Class="CINEMA_ORM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CINEMA_ORM"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="LOGIN" Height="700" MinHeight="700" MaxHeight="2700" Width="900" MinWidth="900" MaxWidth="2900" WindowStartupLocation="CenterScreen"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="18"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        ShowInTaskbar="False" Icon="/LogoAstrocines3.PNG">
+    <Grid x:Name="GD_CONTENIDO" Background="WhiteSmoke" IsEnabled="True" Visibility="Visible">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="GB_CONTENEDOR" Header="Inicio de sesión" FontSize="18" Style="{DynamicResource MaterialDesignGroupBox}" Grid.Row="0" Margin="16" Grid.RowSpan="2" Grid.ColumnSpan="2" >
+            <Grid x:Name="GR_CUERPO">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="IM_LOGO" Source="/LogoAstrocines3.PNG" 
+                       Grid.Column="1" Grid.Row="0" Margin="0,35" 
+                       Stretch="Uniform" ToolTip="Logo de AstroCines"></Image>
+                <TextBox x:Name="TB_USER"
+                         materialDesign:TextFieldAssist.UnderlineBrush="DimGray"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                         Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" 
+                         FontSize="18" Margin="5">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel x:Name="SP_USER" Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="User" 
+                                 VerticalAlignment="Center"/>
+                            <Label x:Name="LB_USER">Usuari@</Label>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
+                <PasswordBox x:Name="PB_PASS" Grid.Column="0" Grid.Row="1"
+                            materialDesign:TextFieldAssist.UnderlineBrush="DimGray"
+                            Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" 
+                            VerticalAlignment="Center" FontSize="18" Margin="5">
+                    <materialDesign:HintAssist.Hint>
+                        <StackPanel x:Name="SP_PASS" Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Password"
+                                VerticalAlignment="Center" />
+                            <Label x:Name="LB_PASS">Contraseña</Label>
+                        </StackPanel>
+                    </materialDesign:HintAssist.Hint>
+                </PasswordBox>
+                <TextBlock x:Name ="TB_ERROR" OpacityMask="Crimson" Foreground="#FFE5572C" Grid.Column="0" Grid.Row="2" Margin="5" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" ToolTip="Mensaje de error"/>
+                <WrapPanel x:Name="WP_BOTONES" Orientation="Horizontal" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <Button x:Name="BT_ENTRAR" ToolTip="Entrar en la aplicación"
+                            Style="{DynamicResource MaterialDesignRaisedButton}" 
+                            materialDesign:ShadowAssist.ShadowDepth="Depth3" 
+                            Content="Entrar" Click="BT_ENTRAR_MouseDown" 
+                            Margin="5" FontSize="18" TabIndex="2"/>
+                    <Button x:Name="BT_AYUDA" Content="Ayuda"
+                             Style="{DynamicResource MaterialDesignRaisedButton}" 
+                            materialDesign:ShadowAssist.ShadowDepth="Depth3" 
+                            Click="BT_AYUDA_Click" Cursor="Help" TabIndex="3"
+                            ToolTip="Ayuda con el manual usuari@" Margin="5,5,5,5" FontSize="18"/>
+                    <!--<Button x:Name="BT_REGISTRAR" ToolTip="Registrarse en la aplicación" Style="{DynamicResource MaterialDesignRaisedButton}" materialDesign:ShadowAssist.ShadowDepth="Depth3" Content="Registrar" Margin="5" Click="BT_REGISTRAR_MouseDown" FontSize="18" TabIndex="3" Cursor="Hand" />-->
+                    <Button x:Name="BT_SALIR" ToolTip="Salir de la aplicación" 
+                            Style="{DynamicResource MaterialDesignRaisedButton}" 
+                            materialDesign:ShadowAssist.ShadowDepth="Depth3" 
+                            Content="Salir" Margin="5" Click="BT_SALIR_Click" 
+                            FontSize="18" TabIndex="4" Cursor="Hand"></Button>
+                </WrapPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

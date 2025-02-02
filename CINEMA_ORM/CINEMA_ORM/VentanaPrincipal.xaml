@@ -1,0 +1,82 @@
+﻿<Window x:Class="CINEMA_ORM.VentanaPrincipal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CINEMA_ORM"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Ventana Principal Cines" Height="800" MinHeight="800" MaxHeight="1700" Width="1100" MinWidth="1100" MaxWidth="2900" WindowStartupLocation="CenterScreen"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="18"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        ShowInTaskbar="False" Icon="/LogoAstrocines3.PNG">
+    <Grid x:Name="GD_CONTENIDO" Background="WhiteSmoke" IsEnabled="True" Visibility="Visible">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--<ListView Grid.Column="0" Grid.Row="2">
+            <ListViewItem>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="CameraRoll" Width="35" Height="35" />
+                    <TextBlock Text="Cines"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="PersonAdd" Width="35" Height="35" />
+                    <TextBlock Text="Emplead@s"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Login" Width="35" Height="35" />
+                    <TextBlock Text="Login"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="CloseBox" Width="35" Height="35" />
+                    <TextBlock Text="Salir"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="HelpCircle" Width="35" Height="35" />
+                    <TextBlock Text="Ayuda"/>
+                </StackPanel>
+            </ListViewItem>
+        </ListView>-->
+        <Button x:Name="BT_MANTENIMIENTO_CARTELERA" Content="Gestión Cartelera" 
+                Grid.Row="2" Grid.Column="0" Click="BT_MANTENIMIENTO_CARTELERA_Click"
+                Cursor="Hand" ToolTip="Gestión cartelera" FontSize="18" Margin="5,5,5,5"/>
+        <Button x:Name="BT_MANTENIMIENTO_CINES" Content="Gestión Cines" 
+                Grid.Row="3" Grid.Column="0" Click="BT_MANTENIMIENTO_CINES_Click"
+                Cursor="Hand" ToolTip="Gestión cines" FontSize="18" Margin="5,5,5,5"/>
+        <Button x:Name="BT_MANTENIMIENTO_EMPLEADX" Content="Gestión Emplead@s"
+                Grid.Row="4" Grid.Column="0" Click="BT_MANTENIMIENTO_EMPLEADX_Click"
+                Margin="5,5,5,5" Cursor="Hand" ToolTip="Gestión emplead@" FontSize="18"/>
+        <Image x:Name="IM_LOGO" Grid.Row="0" Grid.Column="0" 
+               Grid.RowSpan="2" Source="/LogoAstrocines3.PNG" 
+               Cursor="Hand"/>
+        <Button x:Name="BT_SALIR" Grid.Row="5" Click="BT_SALIR_Click"
+                Cursor="Hand" Grid.Column="0" ToolTip="Salir de la aplicación"
+                FontSize="18" Margin="5,5,5,5" 
+                Content="Salir"/>
+        <Button x:Name="BT_AYUDA" Content="Ayuda"
+                Grid.Row="6" Click="BT_AYUDA_Click" Cursor="Help" Grid.Column="0"
+                ToolTip="Ayuda con el manual usuari@" Margin="5,5,5,5" FontSize="18"/>
+        <Frame x:Name="FR_MARCO" Grid.Column="1" Grid.Row="0" Grid.RowSpan="7"/>
+    </Grid>
+</Window>
